@@ -1,5 +1,5 @@
 ---
-title: NHL Head Injuries + Data Science
+title: Predicting NHL Head Injuries
 category: General
 ---
 
