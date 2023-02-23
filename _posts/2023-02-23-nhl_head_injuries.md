@@ -1,3 +1,8 @@
+---
+title: NHL Head Injuries + Data Science
+category: General
+---
+
 **The following will be a walkthrough of a data science project I completed and the methods used.**
 
 # NHL Head Injuries
