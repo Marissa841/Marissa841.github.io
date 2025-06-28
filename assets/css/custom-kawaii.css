@@ -1,0 +1,37 @@
+body {
+  background-color: #fff0f6;
+  font-family: 'Patrick Hand', cursive, sans-serif;
+}
+
+a {
+  color: #ff8fab;
+}
+
+.wrapper, .post, .card {
+  border-radius: 15px;
+  background-color: #fff7fb;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 1em;
+}
+
+h1, h2, h3 {
+  color: #ff6f91;
+}
+
+button, .btn {
+  background-color: #ffb3c6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+button:hover, .btn:hover {
+  background-color: #ff8fab;
+}
+
+img {
+  border-radius: 10px;
+}
