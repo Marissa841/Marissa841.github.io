@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About me
-subtitle: I don't know yet
+subtitle: Placeholder
 ---
 
-My name is Marissa Bush
+
