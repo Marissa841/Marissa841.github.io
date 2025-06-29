@@ -50,7 +50,7 @@ img {
 
 /* Optional: Sparkle Effect for Headers */
 h1::after, h2::after {
-  content: ' ✨';
+  content: ' 🦌';
   color: #b2dffb;
 }
 
