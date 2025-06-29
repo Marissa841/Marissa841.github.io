@@ -1,37 +1,65 @@
 body {
-  background-color: #fff0f6;
+  background-color: #f0f8ff; /* icy soft blue */
   font-family: 'Patrick Hand', cursive, sans-serif;
+  background-image: url('/assets/img/snowflakes-bg.png'); /* optional snowy background image */
+  background-repeat: repeat;
+  background-size: contain;
+  color: #4a4e69; /* soft night-sky purple */
 }
 
 a {
-  color: #ff8fab;
+  color: #7fb8d2; /* frosty pastel blue */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #b2dffb; /* lighter icy sparkle on hover */
 }
 
 .wrapper, .post, .card {
   border-radius: 15px;
-  background-color: #fff7fb;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  padding: 1em;
+  background-color: #e6f2ff; /* pale frosty panel */
+  box-shadow: 0 6px 12px rgba(173, 216, 230, 0.25); /* soft blue glow */
+  padding: 1.5em;
 }
 
 h1, h2, h3 {
-  color: #ff6f91;
+  color: #5a5475; /* cozy periwinkle */
 }
 
 button, .btn {
-  background-color: #ffb3c6;
+  background-color: #89c3eb; /* kawaii winter blue */
   color: white;
   border: none;
   border-radius: 10px;
   padding: 8px 16px;
   font-size: 1em;
   cursor: pointer;
+  box-shadow: 0 2px 5px rgba(137, 195, 235, 0.3);
+  transition: background-color 0.3s ease;
 }
 
 button:hover, .btn:hover {
-  background-color: #ff8fab;
+  background-color: #7fb8d2; /* slightly darker icy blue */
 }
 
 img {
   border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Optional: Sparkle Effect for Headers */
+h1::after, h2::after {
+  content: ' ✨';
+  color: #b2dffb;
+}
+
+/* Optional: Snowflake Background Animation (subtle) */
+@keyframes floatSnowflakes {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 500px; }
+}
+
+body {
+  animation: floatSnowflakes 60s linear infinite;
 }
