@@ -1,100 +1,29 @@
 ---
+title: NLP Project
+date: 2022-11-29
 layout: post
-title: Sample blog post to learn markdown tips
-subtitle: There's lots to learn!
-gh-repo: daattali/beautiful-jekyll
-gh-badge: [star, fork, follow]
-tags: [test]
-comments: true
-mathjax: true
-author: Bill Smith
+category: General
 ---
 
-{: .box-success}
-This is a demo post to show you how to write blog posts with markdown.  I strongly encourage you to [take 5 minutes to learn how to write in markdown](https://markdowntutorial.com/) - it'll teach you how to transform regular text into bold/italics/tables/etc.<br/>I also encourage you to look at the [code that created this post](https://raw.githubusercontent.com/daattali/beautiful-jekyll/master/_posts/2020-02-28-sample-markdown.md) to learn some more advanced tips about using markdown in Beautiful Jekyll.
+NLP Project 
 
-**Here is some bold text**
+For the following, I will detail the steps I took to complete an NLP project. The business case, to start, was to find a model that would be able to assess whether a tweet could be marked as either positive or negative. I looked at the different machine learning models by the f1 score and chose the one that was closest to 1. After several run-throughs of models, I found the first iteration of a random forest model from sci-kit learn had the highest f1 score at 0.93. The following paragraphs will detail the steps I took to arrive at that score. 
 
-## Here is a secondary heading
+To begin, I first applied the OSEMN data analysis method where I would follow the order of obtaining the data, scrub, explore, model, and then interpret the findings. I obtained the data from Crowd Flower on the data.world website. The data contained a single CSV file with three rows and a little over 9,000 columns. Once the data was loaded into a data frame, I began the second portion of the OSEMN method, scrub. To do this, I took a look at the data frame and used .describe() and .shape. With .describe(), I was able to see that the most commonly marked tweet was neither “Positive emotion” nor “Negative emotion”, but marked as  “No emotion toward brand or product”. I then dropped the “No emotion toward brand or product” value as well as the “I can’t tell” value. The reason for dropping these two values is that I wanted the machine learning models to find out which tweets were positive or negative. I decided it’d be a lot easier for the models to train on tweets that were marked decisively, rather than neutral. 
 
-[This is a link to a different site](https://deanattali.com/) and [this is a link to a section inside this page](#local-urls).
+For the next portion of the scrubbing and exploring stage, I began to apply the well-known packages and data-cleaning methods that are associated with a typical NLP project. I changed the text of the tweets to lowercase, removed punctuation, and removed stop words. For the stopwords, I loaded them into my notebook and applied the English setting to NLTK(Natural language tool kit). Stopwords are removed because they are the most common words in the data and language, but provide little elaboration or specificity towards an NLP problem in general, and my project problem in particular. Stopwords are useful in every other context in spoken and written language, I would say, but for machine learning, they are too widespread to provide anything gainful in a machine learning context. 
 
-Here's a table:
+After I removed the stopwords, I added a couple of graphs (+) that would show what were the top 10 most common words in positive tweets versus negative tweets. For positive tweets, interestingly, there were no specifically associated “positive” words present. The top ten words can be seen below:
 
-| Number | Next number | Previous number |
-| :------ |:--- | :--- |
-| Five | Six | Four |
-| Ten | Eleven | Nine |
-| Seven | Eight | Six |
-| Two | Three | One |
+![words in positive tweets](https://raw.githubusercontent.com/Marissa841/Marissa841.github.io/master/images/nlp_project_post/words_in_positive_tweets.PNG)
 
-You can use [MathJax](https://www.mathjax.org/) to write LaTeX expressions. For example:
-When \\(a \ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\) and they are $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+ For the top 10 negative tweets, there were also somewhat bland words that wouldn’t be associated with being “negative”:
 
-How about a yummy crepe?
+![words in negative tweets](https://raw.githubusercontent.com/Marissa841/Marissa841.github.io/master/images/nlp_project_post/words_in_neg_tweets.PNG)
 
-![Crepe](https://beautifuljekyll.com/assets/img/crepe.jpg)
+After obtaining, scrubbing, and exploring the data, I then applied a function that would input the train test split “x” and “y” values, input a model, and apply bag-of-words, TF-IDF, or neither. Bag-of-words is a commonly used model that counts the number of times a word occurs in a document and I wanted to include that to allow the model to have an easier time with computation. TF-IDF stands for term frequency-inverse document frequency. Using the Tfidf vectorizer would help associate how relevant a word is to a given document. It can determine which words are most important to a given document. Once I had applied my function, I think iteratively ran through models to find which one would output the best f1-score. I first ran through basic logistic regression, a decision tree classifier, and a random forest classifier, all with a bag of words. I then ran through the same three models, with bag-of-words, and also added the argument “class-weight=” balanced”, to help with the imbalance of positive and negative tweets. After that iteration, I did the same three classification models, but instead, applied tfidf. And for my final run-through of models, I used tfidf, and “class_weight = “balanced”. From these four iterations of modeling, I found that the basic bag-of-words random forest classifier achieved the highest f1_score close to one, at 0.93. 
 
-It can also be centered!
+Once I had the best model, I moved on to the OSEMN method of interpretation and looked at the feature importance (word importance) of the random forest model. Here I found that in the top 10 most important words, there were slightly more words associated with negative tweets that carried more weight. To further look at the information, I applied another function “word_count_by_class” to gain a sense of the target count when adding a keyword from a tweet. 
 
-![Crepe](https://beautifuljekyll.com/assets/img/crepe.jpg){: .mx-auto.d-block :}
+Finally, my conclusions from this project are that with machine learning, we can predict whether a tweet is positive or negative. Also, negative tweets have strongly negative words while positive tweets have less obvious words that indicate positive sentiment. For future work with this dataset, I’d be interested to look at the labels of the tweets more closely. Some tweets appear to be incorrectly marked within the dataset. 
 
-Here's a code chunk:
-
-~~~
-var foo = function(x) {
-  return(x + 5);
-}
-foo(3)
-~~~
-
-And here is the same code with syntax highlighting:
-
-```javascript
-var foo = function(x) {
-  return(x + 5);
-}
-foo(3)
-```
-
-And here is the same code yet again but with line numbers:
-
-{% highlight javascript linenos %}
-var foo = function(x) {
-  return(x + 5);
-}
-foo(3)
-{% endhighlight %}
-
-## Boxes
-You can add notification, warning and error boxes like this:
-
-### Notification
-
-{: .box-note}
-**Note:** This is a notification box.
-
-### Warning
-
-{: .box-warning}
-**Warning:** This is a warning box.
-
-### Error
-
-{: .box-error}
-**Error:** This is an error box.
-
-## Local URLs in project sites {#local-urls}
-
-When hosting a *project site* on GitHub Pages (for example, `https://USERNAME.github.io/MyProject`), URLs that begin with `/` and refer to local files may not work correctly due to how the root URL (`/`) is interpreted by GitHub Pages. You can read more about it [in the FAQ](https://beautifuljekyll.com/faq/#links-in-project-page). To demonstrate the issue, the following local image will be broken **if your site is a project site:**
-
-![Crepe](/assets/img/crepe.jpg)
-
-If the above image is broken, then you'll need to follow the instructions [in the FAQ](https://beautifuljekyll.com/faq/#links-in-project-page). Here is proof that it can be fixed:
-
-![Crepe]({{ '/assets/img/crepe.jpg' | relative_url }})
-
-<details markdown="1">
-<summary>Click here!</summary>
-Here you can see an **expandable** section
-</details>
