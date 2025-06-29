@@ -16,8 +16,8 @@ author: Some Person
 navbar-links:
   About Me: "aboutme"
   Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
+    - Something blue: "link"
+
 
 ################
 # --- Logo --- #
@@ -78,21 +78,22 @@ navbar-var-length: false
 
 # Personalize the colours in your website. Colour values can be any valid CSS colour
 
-# 🌸 Kawaii Pastel Color Palette 🌸
+# ❄️ Kawaii Winter Wonderland Palette ❄️
 
-page-col: "#fff0f6"           # light blush pink for background
-text-col: "#5e335e"           # soft plum for main text
-link-col: "#ff85a1"           # pastel pinkish-red for links
-hover-col: "#ff6f91"          # brighter kawaii pink on hover
+page-col: "#f0f8ff"           # icy snow white with blue tint
+text-col: "#5a5475"           # gentle deep periwinkle
+link-col: "#7fb8d2"           # pastel ice blue
+hover-col: "#89c3eb"          # brighter sky blue on hover
 
-navbar-col: "#ffe5ec"         # very pale pink for navbar background
-navbar-text-col: "#7a5977"    # muted mauve for navbar text
-navbar-border-col: "#f5c7d4"  # light rosy border
+navbar-col: "#e6f2ff"         # very light frosty blue
+navbar-text-col: "#4a4e69"    # soft dusk purple/gray
+navbar-border-col: "#cddcec"  # subtle cool border
 
-footer-col: "#ffe5ec"         # match navbar for consistency
-footer-text-col: "#7a5977"    # soft muted text
-footer-link-col: "#d86ba5"    # bubblegum pink for footer links
-footer-hover-col: "#ff85a1"   # match link color on hover
+footer-col: "#e6f2ff"         # match navbar for balance
+footer-text-col: "#4a4e69"    # soft muted purple-gray
+footer-link-col: "#89c3eb"    # icy blue for footer links
+footer-hover-col: "#b2dffb"   # snowy sparkle blue on hover
+
 
 # Alternatively, the navbar, footer, and page background can be set to an image
 # instead of colour
