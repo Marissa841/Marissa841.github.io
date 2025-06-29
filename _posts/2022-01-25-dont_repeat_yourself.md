@@ -1,24 +1,10 @@
-Skip to content
-Navigation Menu
-Marissa841
-Marissa841.github.io
+---
+title: DRY
+date: 2022-01-25
+layout: post
+category: General
+---
 
-Type / to search
-Code
-Pull requests
-Actions
-Projects
-Security
-Insights
-Settings
-Marissa841.github.io/_posts
-/2022-01-25-dont_repeat_yourself.md/
-Deleting Marissa841.github.io/_posts/2022-01-25-dont_repeat_yourself.md. Commit changes to save.
-title	date	layout	category
-Wet vs. Dry Coding Principles
-2025-06-28
-post
-General
 When beginning to code, you will invariably be introduced to functions. Functions are simply defined as a “[…] block of code that performs a task. It can be called and reused multiple times. You can pass information to a function, and it can send information back.” Functions are used for organization, reusability, testing, extensibility, and abstractions. For this post, I’ll focus on the reusability aspect of functions and the DRY and WET principles.
 
 An essential part of functions is that they are great for reusability. This means it can be called repeatedly in a program. So when should you write a function? The DRY principle helps to answer that. DRY stands for “Do Not Repeat” and can be applied to all programming languages. DRY essentially means if you are going to use the same code twice, it’d probably be best to create a function. From DRY code came its opposite-sounding acronym, WET. WET stands for “Write Everything Twice” and arguably fine-tunes the principle of DRY code.
